@@ -1,0 +1,89 @@
+<div id="contenedorFormularioActividad">
+    <form class="col s12 form-modal" action="#" method="post" id="formularioActividad">
+        <div class="row">
+            
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="titulo" id="titulo_actividad" required>
+                <label for="titulo_actividad">Título</label>
+            </div>
+            
+            <div class="input-field col s9 m6 l3">
+                <select class="browser-default" name="estado" required>
+                    <option value="" disabled selected>Estado</option>
+                    {% for estado in estados %}
+                        <option value="{{ estado }}" id="estado_actividad">{{ estado }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="coordinador" id="coordinador_actividad">
+                <label for="coordinador_actividad">Coordinador</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="ponente" id="ponente_actividad">
+                <label for="ponente_actividad">Ponente</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="ubicacion" id="ubicacion_actividad">
+                <label for="ubicacion_actividad">Ubicación</label>
+            </div>
+
+            <div class="input-field col s9 m6 l3">
+                <input type="date" class="validate datepicker" name="fecha_inicio" id="fecha_inicio_actividad" required>
+                <label for="fecha_inicio_actividad" style="margin-top: -11%">Fecha Inicio</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="date" class="validate datepicker" name="fecha_fin" id="fecha_fin_actividad" required>
+                <label for="fecha_fin_actividad" style="margin-top: -11%">Fecha Fin</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="time" class="validate time_element" name="horario_inicio" id="horario_inicio_actividad" required>
+                <label for="horario_inicio_actividad" style="margin-top: -11%">Hora Inicio</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="time" class="validate time_element" name="horario_fin" id="horario_fin_actividad" required>
+                <label for="horario_fin_actividad" style="margin-top: -11%">Hora Fin</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="number" class="validate" name="n_Total_Horas" id="n_total_horas_actividad">
+                <label for="n_total_horas_actividad">Nº Total Horas</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="number" min="0" class="validate" name="precio" id="precio_actividad">
+                <label for="precio_actividad">Precio</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <select class="browser-default" name="IVA" required>
+                    <option value="" disabled selected>IVA</option>
+                    {% for IVA in IVA %}
+                        <option value="{{ IVA }}" id="iva_actividad">{{ IVA }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="input-field col s9 m6 l3" style="margin-right: 20%;">
+                <select class="browser-default" name="descriptor" required>
+                    <option value="" disabled selected>Descriptor</option>
+                    {% for descriptor in descriptores %}
+                        <option value="{{ descriptor }}" id="descriptor_actividad">{{ descriptor }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="input-field col s12">
+                <textarea class="materialize-textarea" name="observaciones" id="observaciones_actividad"></textarea>
+                <label for="observaciones_actividad">Observaciones</label>
+            </div>
+        </div>
+        {#    <input class="waves-effect waves-light btn" type="submit" value="Ingresar" id="botonIngresar">#}
+    </form>
+</div>

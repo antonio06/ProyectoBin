@@ -1,0 +1,129 @@
+{% extends 'panelPrincipalBase.html.twig' %}
+{% block menuPrincipalPanel %}
+    <nav class="nav-wrapper">
+        <div class="nav-wrapper indigo lighten-3">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile indigo lighten-3" class="right hide-on-med-and-down">
+                <li><a href="../../Controller/partePrivada/gestionActividades.php">Gestión Actividades</a></li>
+                <li><a href="../../Controller/partePrivada/gestionParticipantes.php">Gestión Participantes</a></li>
+                <li><a href="../../Controller/partePrivada/gestionPersonas.php">Gestión Personas</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="../../Controller/partePrivada/miPerfil.php">Mi perfil</a></li>
+                    <li><a href="../../Controller/partePrivada/misActividades.php">Mis actividades</a></li>
+                    <li><a href="../../Controller/partePrivada/salirPerfil.php">Salir del perfil</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block contenidoPanel %}
+    <div class="row">
+        <form class="col s12" action="../../Controller/partePrivada/modificadopersona.php" method="post" enctype="multipart/form-data" id="formularioModificarPersona">
+            <div class="row">
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="DNI" value="{{ persona.DNI }}" id="dni_persona">
+                    <label for="dni_persona">DNI</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="nombre" value="{{ persona.nombre }}" id="nombre_persona">
+                    <label for="nombre_persona">Nombre</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="apellido1" value="{{ persona.apellido1 }}" id="apellido1_persona">
+                    <label for="apellido1_persona">1º Apellido</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="apellido2" value="{{ persona.apellido2 }}" id="apellido2_persona">
+                    <label for="apellido2_persona">2º Apellido</label>
+                </div>
+                <div class="input-field col s4">
+                    <select class="browser-default" name="perfil">
+                        <option  disabled selected>Perfiles</option>
+                        {% for perfil in perfiles %}
+                            <option value="{{ perfil }}" id="perfil_persona">{{ perfil }}</option>
+                        {% endfor %}}
+                    </select>
+                </div>
+                <div class="file-field input-field col s6">
+                    <div class="btn">
+                        <span>Foto/Logo</span>
+                        <input type="file" id="foto" name="foto" value="{{ persona.foto }}" id="foto_persona">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <div class="input-field col s4">
+                    <select class="browser-default" name="sexo">
+                        <option  disabled selected>Sexo</option>
+                        {% for sexo in sexo %}
+                            <option value="{{ sexo }}" id="sexo_persona">{{ sexo }}</option>
+                        {% endfor %}}
+                    </select>
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -11%">Fecha Nacimiento</label>
+                    <input id="fecha_nac_persona" type="date" class="validate" name="fecha_nac" value="{{ persona.fecha_nac }}" id="fecha_nac_persona">
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="direccion" value="{{ persona.direccion }}" id="direccion_persona">
+                    <label for="direccion_persona">Direccion</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="municipio" value="{{ persona.municipio }}" id="municipio_persona">
+                    <label for="municipio_persona">Municipio</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="provincia" value="{{ persona.provincia }}" id="provincia_persona">
+                    <label for="provincia_persona">Provincia</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" class="validate" name="pais" value="{{ persona.pais }}" id="pais_persona">
+                    <label for="pais_persona">País</label>
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -11%">Fecha Alta</label>
+                    <input type="date" class="validate" name="fecha_alta" value="{{ persona.fecha_alta }}" id="fecha_alta_persona">
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -11%">Fecha Baja</label>
+                    <input type="date" class="validate" name="fecha_baja" value="{{ persona.fecha_baja }}" id="fecha_baja_persona">
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -1%">Nº Seguridad Social</label>
+                    <input type="text" class="validate" name="n_Seguridad_Social" value="{{ persona.n_Seguridad_Social }}" id="n_seguridad_social_persona">
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -1%">Nº Cuenta Bancaria</label>
+                    <input type="text" class="validate" name="n_Cuenta_Bancaria" value="{{ persona.n_Cuenta_Bancaria }}" id="n_cuenta_bancaria_persona">
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -1%">Email</label>
+                    <input type="email" class="validate" name="email" value="{{ persona.email }}" id="email_persona">
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: 1%">Password</label>
+                    <input type="password" class="validate" name="password" value="{{ persona.password }}" id="password_persona">
+                </div>
+                <div class="input-field col s3">
+                    <select class="browser-default" name="perfil_usuario">
+                        <option value="" disabled selected>Perfil Usuario</option>
+                        {% for perfilUsuario in perfilesUsuarios %}
+                            <option value="{{ perfilUsuario }}" id="perfil_usuario_persona">{{ perfilUsuario }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-field col s3">
+                    <label style="margin-top: -11%">Observaciones</label>
+                    <input type="text" class="validate" name="observaciones" value="{{persona.observaciones}}" id="observaciones_persona">
+                </div>
+            </div>
+                <input class="waves-effect waves-light btn yellow accent-2" type="submit" value="modificar" name="opcion" id="botonModificar">
+                <input class="waves-effect waves-light btn" type="submit" value="cancelar" name="opcion" id="botonCancelar">
+        </form>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,127 @@
+<div id="contenedorFormularioPersona">
+    <form class="col s12 form-modal" action="#" method="POST" enctype="multipart/form-data" id="formularioPersona">
+        <div class="row">
+            
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="DNI" id="dni_persona" required>
+                <label for="dni_persona">DNI</label>
+            </div>
+            
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="nombre" id="nombre_persona" required>
+                <label for="nombre_persona">Nombre</label>
+            </div>
+            
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="apellido1" id="apellido1_persona" required>
+                <label for="apellido1_persona">1º Apellido</label>
+            </div>
+            
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="apellido2" id="apellido2_persona" required>
+                <label for="apellido2_persona">2º Apellido</label>
+            </div>
+            
+            <div class="input-field col s9 m6 l3">
+                <select class="browser-default" name="perfil" required>
+                    <option value="" disabled selected >Perfiles</option>
+                    {% for perfil in perfiles %}
+                        <option value="{{ perfil.codigo }}">{{ perfil.descripcion }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="file-field input-field col s9 m6 l3">
+                <div class="btn">
+                    <span>Foto/Logo</span>
+                    <input type="file" name="foto" id="foto_persona">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div> 
+                
+            <div class="input-field col s9 m6 l3">
+                <select class="browser-default" name="sexo" required>
+                    <option value="" disabled selected>Sexo</option>
+                    {% for sexo in sexos %}
+                        <option value="{{ sexo }}" id="sexo_persona">{{ sexo }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <label style="margin-top: -11%">Fecha Nacimiento</label>
+                <input type="date" class="validate datepicker" name="fecha_nac" id="fecha_nac_persona" required>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="direccion" id="direccion_persona">
+                <label for="direccion_persona">Dirección</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input id="last_name" type="text" class="validate" name="municipio" id="municipio_persona">
+                <label for="last_name">Municipio</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="provincia" id="provincia_persona">
+                <label for="provincia_persona">Provincia</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="pais" id="pais_persona">
+                <label for="pais_persona">Pais</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <label style="margin-top: -11%">Fecha Alta</label>
+                <input type="date" class="validate datepicker" name="fecha_alta" id="fecha_alta_persona">
+                <label for="fecha_alta_persona"></label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <label style="margin-top: -11%">Fecha Baja</label>
+                <input type="date" class="validate datepicker" name="fecha_baja" id="fecha_baja_persona">
+                <label for="fecha_baja_persona"></label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="n_Seguridad_Social" id="n_seguridad_social_persona">
+                <label for="n_seguridad_social_persona">Nº Seguridad Social</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="text" class="validate" name="n_Cuenta_Bancaria" id="n_cuenta_bancaria_persona">
+                <label for="n_cuenta_bancaria_persona">Nº Cuenta Bancaria</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="email" class="validate" name="email" id="email_persona" required>
+                <label for="email_persona">Email</label>
+            </div>
+                
+            <div class="input-field col s9 m6 l3">
+                <input type="password" class="validate" name="password" id="password_persona" required>
+                <label for="password_persona">Password</label>
+            </div>
+                
+            <div class="input-field col s11 m6 l3">
+                <select class="browser-default" name="perfil_usuario" required>
+                    <option value="" disabled selected>Perfiles Usuarios</option>
+                    {% for perfilUsuario in perfilesUsuarios %}
+                        <option value="{{ perfilUsuario }}" id="perfil_usuario_persona">{{ perfilUsuario }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                
+            <div class="input-field col s12">
+                <input type="text" class="validate" name="observaciones" id="observaciones_persona">
+                <label for="observaciones_persona">Observaciones</label>
+            </div>
+                
+        </div>
+    </form>
+</div>
+

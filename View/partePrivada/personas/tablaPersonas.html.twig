@@ -1,0 +1,65 @@
+<table id="tablaPersonas" class="bordered table-centered responsive-table">
+        <tr>
+            <td>Codigo</td>
+            <td>DNI</td>
+            <td>Nombre</td>
+            <td>1 Apellido</td>
+            <td>2 Apellido</td>
+            <td>Sexo</td>
+            <td>
+                {% if esAdministrador != null %}
+                <a href="#" data-action="nuevo"><i class="fa fa-plus"></i></a></td>
+                {% endif %}
+        </tr>
+        {% for persona in personas %}
+            <tr>
+                <td>{{ persona.codigo }}</td>
+                <td>{{ persona.DNI }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido1 }}</td>
+                <td>{{ persona.apellido2 }}</td>
+                <td>{{ persona.sexo }}</td>
+                {% if esAdministrador != null %}
+                    <td>
+                        <div class="icons-container">
+                            <a href="#" data-action="detalles" data-id="{{ persona.codigo }}" class="icons"><i class="fa fa-search-plus"></i></a>
+                            <a href="#" data-action="editar" data-id="{{ persona.codigo }}" class="icons"><i class="fa fa-pencil"></i></a>
+                            <a href="#" data-action="borrar" data-id="{{ persona.codigo }}" class="icons"><i class="fa fa-times"></i></a>
+                        </div>
+                    </td>
+                        {% else %}
+                    <td>
+                        <a href="#" data-action="detalles" data-id="{{ persona.codigo }}" ><i class="fa fa-search-plus"></i></a>
+                    </td>
+                        {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+<div class="center-align">
+    <ul class="pagination" id="paginacion" data-pagina="{{pagina}}">
+        {% if pagina > 3 %}
+            <li class="colorPagina" data-pagina="1"><a href="#">Primera</a></li>
+            {% endif %}
+
+        {% if pagina > 1 %}
+            <li class="colorPagina" data-pagina="{{(pagina - 1)}}"><a href="#">Anterior</a></li>
+            {% endif %}
+
+        {% for numero in arrayNumeros %}
+            {% if numero == pagina %}
+                <li class="paginaActual" data-pagina="{{numero}}"><a href="#">{{numero}}</a></li>
+                {% else %}
+                <li class="colorPagina" data-pagina="{{numero}}"><a href="#">{{numero}}</a></li>
+                {% endif %}
+            {% endfor %}
+
+        {% if pagina < totalPaginas %}
+            <li class="colorPagina" data-pagina="{{(pagina + 1)}}"><a href="#">Siguiente</a></li>
+            {% endif %}
+
+        {% if pagina < (totalPaginas - 2) %}
+            <li class="colorPagina" data-pagina="{{totalPaginas}}"><a href="#">Última</a></li>
+            {% endif %}
+    </ul>
+</div>

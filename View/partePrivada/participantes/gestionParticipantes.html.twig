@@ -1,0 +1,23 @@
+{% extends 'panelPrincipalBase.html.twig' %}
+{% block contenidoPanel %}
+    <div class="text-center">
+        <div id="divMensaje"></div>
+    </div>
+    <div id="contenedorTabla">
+        {% include "participantes/tablaParticipantes.html.twig" %}
+    </div>
+    
+    <div id="modalParticipante" class="modal">
+        <div class="modal-content">
+            {% include "participantes/formularioParticipante.html.twig" %}
+        </div>
+        <div class="modal-footer no-overflow">
+            </div>
+         <div class="modal-footer no-overflow">
+            <input class="waves-effect waves-light btn" id="cerrarModal" type="button" value="Cerrar">
+            <input class="waves-effect waves-light btn" id="nuevoParticipante" type="submit" form="formularioParticipante" value="Registrar participante">
+            <input class="waves-effect waves-light btn" id="modificarParticipante" form="formularioParticipante" type="button" value="Guardar cambios">
+        </div>
+    </div>
+    <script type="text/javascript" src="/public/asset/js/gestionParticipantes.js"></script>
+{% endblock %}

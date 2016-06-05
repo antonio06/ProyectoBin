@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block contenido %}
+    <div class="text-center">
+        <div id="divMensaje"></div>
+    </div>
+    <div id="contenedorTabla">
+        {% include "tablaMisActividades.html.twig" %}
+    </div>
+    
+    <script type="text/javascript" src="/public/asset/js/misActividadesPublica.js"></script>
+{% endblock %}

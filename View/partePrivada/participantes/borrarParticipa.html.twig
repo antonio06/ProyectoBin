@@ -1,0 +1,29 @@
+{% extends 'panelPrincipalBase.html.twig' %}
+{% block menuPrincipalPanel %}
+    <nav class="nav-wrapper">
+        <div class="nav-wrapper indigo lighten-3">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile indigo lighten-3" class="right hide-on-med-and-down">
+                <li><a href="../../Controller/partePrivada/gestionActividades.php">Gestión Actividades</a></li>
+                <li><a href="../../Controller/partePrivada/gestionParticipantes.php">Gestión Participantes</a></li>
+                <li><a href="../../Controller/partePrivada/gestionPersonas.php">Gestión Personas</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="../../Controller/partePrivada/miPerfil.php">Mi perfil</a></li>
+                    <li><a href="../../Controller/partePrivada/misActividades.php">Mis actividades</a></li>
+                    <li><a href="../../Controller/partePrivada/salirPerfil.php">Salir del perfil</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block contenidoPanel %}
+    <div class="center-align">
+        <form action="../../Controller/partePrivada/eliminadoparticipa.php" method="post" id="formularioBorrarParticipa">
+            <input class="waves-effect waves-light btn red accent-4" id="botonBorrar" type="submit"  value="borrar" name="opcion">
+            <input class="waves-effect waves-light btn amber lighten-2" id="botonCancelar" type="submit" value="cancelar" name="opcion">
+        </form>
+    </div>
+{% endblock %}

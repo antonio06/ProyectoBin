@@ -1,0 +1,56 @@
+<table id="tablaActividades" class="bordered table-centered responsive-table">
+    <tr>
+        <td>Codigo</td>
+        <td>Título</td>
+        <td>Estado</td>
+        <td>Ubicación</td>
+        <td>Fecha Inicio</td>
+        <td>Fecha Fin</td>
+        <td>Descriptor</td>
+        <td></td>
+    </tr>
+    {% for actividad in actividades %}
+        <tr>
+            <td>{{ actividad.codigo_actividad }}</td>
+            <td>{{ actividad.titulo }}</td>
+            <td>{{ actividad.estado }}</td>
+            <td>{{ actividad.ubicacion }}</td>
+            <td>{{ actividad.fecha_inicio }}</td>
+            <td>{{ actividad.fecha_fin }}</td>
+            <td>{{ actividad.descriptor }}</td>
+            <td>
+                <div class="icons-container">
+                    <a href="#" data-action="detalles" data-id="{{ actividad.codigo_actividad }}"><i class="fa fa-search-plus"></i></a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="center-align">
+    <ul class="pagination" id="paginacion" data-pagina="{{pagina}}">
+        {% if pagina > 3 %}
+            <li class="colorPagina" data-pagina="1"><a href="#">Primera</a></li>
+            {% endif %}
+
+        {% if pagina > 1 %}
+            <li class="colorPagina" data-pagina="{{(pagina - 1)}}"><a href="#">Anterior</a></li>
+            {% endif %}
+
+        {% for numero in arrayNumeros %}
+            {% if numero == pagina %}
+                <li class="paginaActual" data-pagina="{{numero}}"><a href="#">{{numero}}</a></li>
+                {% else %}
+                <li class="colorPagina" data-pagina="{{numero}}"><a href="#">{{numero}}</a></li>
+                {% endif %}
+            {% endfor %}
+
+        {% if pagina < totalPaginas %}
+            <li class="colorPagina" data-pagina="{{(pagina + 1)}}"><a href="#">Siguiente</a></li>
+            {% endif %}
+
+        {% if pagina < (totalPaginas - 2) %}
+            <li class="colorPagina" data-pagina="{{totalPaginas}}"><a href="#">Última</a></li>
+            {% endif %}
+    </ul>
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Panel Principal de Gestion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/public/lib/materialize/css/materialize.min.css">
+        <link rel="stylesheet" href="/public/lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/lib/timepicki/css/timepicki.css">
+        <link rel="stylesheet" href="/public/asset/css/style.css" >
+        <script type="text/javascript" src="/public/lib/jquery/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="section">
+                <section class="container white-text center-align">
+                    <h1 class="colorBase1">Panel Principal de Gestion</h1>
+                </section>
+            </header>
+            <nav>
+                <div class="nav-wrapper colorMenu">
+                    {# Menu principal #} 
+                    <a href="#" data-activates="mobile-demo" class="button-collapse">
+                        <i class="fa fa-bars iconoHamburguesa" aria-hidden="true"></i>
+                    </a>
+                    <ul class="right hide-on-med-and-down colorMenu">
+                        <li><a href="/Controller/partePrivada/actividades/gestionActividades.php">Gestión Actividades</a></li>
+                        <li><a href="/Controller/partePrivada/participantes/gestionParticipantes.php">Gestión Participantes</a></li>
+                        <li><a href="/Controller/partePrivada/personas/gestionPersonas.php">Gestión Personas</a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="submenuPrincipal">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                    </ul>
+                    {# Submenu principal #}
+                    <ul id="submenuPrincipal" class="dropdown-content">
+                        <li><a href="/Controller/partePrivada/usuario/miPerfil.php">Mi perfil</a></li>
+                        <li><a href="/Controller/partePrivada/usuario/misActividades.php">Mis actividades</a></li>
+                        <li><a href="/Controller/partePrivada/usuario/salirPerfil.php">Salir del perfil</a></li>
+                    </ul>
+                    
+                    {# Menu movil #}
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/Controller/partePrivada/actividades/gestionActividades.php">Gestión Actividades</a></li>
+                        <li><a href="/Controller/partePrivada/participantes/gestionParticipantes.php">Gestión Participantes</a></li>
+                        <li><a href="/Controller/partePrivada/personas/gestionPersonas.php">Gestión Personas</a></li>
+                        <li><a class="dropdown-button" href="#" data-activates="submenuMovil">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                    </ul>
+
+                    {# Submenu movil #}
+                    <ul id="submenuMovil" class="dropdown-content">
+                        <li><a href="/Controller/partePrivada/usuario/miPerfil.php">Mi perfil</a></li>
+                        <li><a href="/Controller/partePrivada/usuario/misActividades.php">Mis actividades</a></li>
+                        <li><a href="/Controller/partePrivada/usuario/salirPerfil.php">Salir del perfil</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="contenedorPrincipal" class="row">
+            {% block contenidoPanel %}{% endblock %}
+        </div>
+    </div>
+    <script type="text/javascript" src="/public/lib/materialize/js/materialize.min.js"></script>
+</body>
+</html>

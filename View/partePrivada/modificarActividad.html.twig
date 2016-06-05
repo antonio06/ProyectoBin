@@ -1,0 +1,112 @@
+{% extends 'panelPrincipalBase.html.twig' %}
+{% block menuPrincipalPanel %}
+    <nav class="nav-wrapper">
+        <div class="nav-wrapper indigo lighten-3">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile indigo lighten-3" class="right hide-on-med-and-down">
+                <li><a href="../../Controller/partePrivada/gestionActividades.php">Gestión Actividades</a></li>
+                <li><a href="../../Controller/partePrivada/gestionParticipantes.php">Gestión Participantes</a></li>
+                <li><a href="../../Controller/partePrivada/gestionPersonas.php">Gestión Personas</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="../../Controller/partePrivada/miPerfil.php">Mi perfil</a></li>
+                    <li><a href="../../Controller/partePrivada/misActividades.php">Mis actividades</a></li>
+                    <li><a href="../../Controller/partePrivada/salirPerfil.php">Salir del perfil</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block contenidoPanel %}
+    <div class="row">
+        <form class="col s12" action="../../Controller/partePrivada/modificadoactividad.php" method="post">
+            <div class="row">
+                <div class="input-field col s5">
+                    <input type="text" class="validate" name="titulo" value="{{ actividad.titulo }}" id="titulo_actividad">
+                    <label for="titulo_actividad">Título</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <select class="browser-default" name="estado" >
+                        <option  disabled selected>Estado</option>
+                        {% for estado in estados %}
+                            <option value="{{ estado }}" id="estado_actividad">{{estado}}</option>
+                        {% endfor %}}
+                    </select>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <input type="text" class="validate" name="coordinador" value="{{ actividad.coordinador }}" id="coordinador_actividad">
+                    <label for="coordinador_actividad">Coordinador</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <input id="last_name" type="text" class="validate" name="ponente" value="{{ actividad.ponente }}" id="ponente_actividad">
+                    <label for="ponente_actividad">Ponente</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <input type="text" class="validate" name="ubicacion" value="{{ actividad.ubicacion }}" id="ubicacion_actividad">
+                    <label for="ubicacion_actividad">Ubicación</label>
+                </div>
+
+                <div class="input-field col s4">
+                    <input type="date" class="validate" name="fecha_inicio" value="{{ actividad.fecha_inicio }}" >
+                    <label for="fecha_inicio_actividad" style="margin-top: -11%">Fecha Inicio</label>
+                </div>
+                
+                <div class="input-field col s4">
+                    <input type="date" class="validate" name="fecha_fin" value="{{ actividad.fecha_fin }}" id="fecha_fin_actividad">
+                    <label for="fecha_fin_actividad" style="margin-top: -11%">Fecha Fin</label>
+                </div>
+                
+                <div class="input-field col s4">
+                    <input type="time" class="validate" name="horario_inicio" value="{{ actividad.horario_inicio }}" id="horario_inicio_actividad">
+                    <label for="horario_inicio_actividad" style="margin-top: -11%">Hora Inicio</label>
+                </div>
+                
+                <div class="input-field col s4">
+                    <input type="time" class="validate" name="horario_fin" value="{{ actividad.horario_fin }}" id="horario_fin_actividad">
+                    <label for="horario_fin_actividad" style="margin-top: -11%">Hora Fin</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <input type="number" class="validate" name="n_Total_Horas" value="{{ actividad.n_Total_Horas }}" id="n_total_horas_actividad">
+                    <label for="n_total_horas_actividad">Nº Total Horas</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <input type="number" class="validate" name="precio" value="{{ actividad.precio }}" id="precio_actividad">
+                    <label for="precio_actividad">Precio</label>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <select class="browser-default" name="IVA">
+                        <option value="" disabled selected>IVA</option>
+                        {% for IVA in IVA %}
+                            <option value="{{ IVA }}" id="iva_actividad">{{ IVA }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                    
+                <div class="input-field col s4">
+                    <select class="browser-default" name="descriptor">
+                        <option value="" disabled selected>Descriptor</option>
+                        {% for descriptor in descriptores %}
+                            <option value="{{ descriptor }}" id="descriptor_actividad">{{ descriptor }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                    
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea" name="observaciones" id="observaciones_actividad">{{ actividad.observaciones }}</textarea>
+                    <label for="observaciones_actividad">Observaciones</label>
+                </div>
+            </div>
+            <input class="waves-effect waves-light btn yellow accent-2" type="submit" value="modificar" name="opcion" id="botonModificar">
+            <input class="waves-effect waves-light btn" type="submit" value="cancelar" name="opcion" id="botonCancelar">
+        </form>
+    </div>
+{% endblock %}

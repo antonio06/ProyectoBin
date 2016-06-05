@@ -1,0 +1,23 @@
+{% extends 'panelPrincipalBase.html.twig' %}
+{% block contenidoPanel %}
+    <div class="text-center">
+        <div id="divMensaje"></div>
+    </div>
+    <div id="contenedorTabla">
+        {% include "personas/tablaPersonas.html.twig" %}
+    </div>
+
+    <div id="modalPersona" class="modal">
+        <div class="modal-content">
+            <div id="divMensajeModalPersona" class="error oculto"></div>
+            {% include "personas/formularioPersona.html.twig" %}
+            {% include "personas/detallesPersona.html.twig" %}
+        </div>
+        <div class="modal-footer no-overflow">
+            <input class="waves-effect waves-light btn" type="button" id="cerrarModal" value="Cerrar">
+            <input class="waves-effect waves-light btn" id="nuevaPersona" type="submit" form="formularioPersona" value="Registrar persona">
+            <input class="waves-effect waves-light btn" id="modificarPersona" form="formularioPersona" type="button" value="Guardad cambios">
+        </div>
+    </div>
+    <script type="text/javascript" src="/public/asset/js/gestionPersonas.js"></script>
+{% endblock %}

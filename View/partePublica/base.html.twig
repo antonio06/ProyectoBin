@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BIN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/public/lib/materialize/css/materialize.min.css" >
+        <link rel="stylesheet" href="/public/lib/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" href="/public/asset/css/style.css" >
+        <script type="text/javascript" src="/public/lib/jquery/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="section">
+                <section class="container white-text center-align">
+                    <h1 class="colorBase1">Asociación Bin</h1>
+                </section>
+            </header>
+            {% if email != null %}
+                <nav>
+                    <div class="nav-wrapper colorMenu">
+                        
+                        <a href="#" data-activates="mobile-demo" class="button-collapse">
+                            <i class="material-icons">
+                                <i class="fa fa-bars iconoHamburguesa" aria-hidden="true"></i>
+                            </i>
+                        </a>
+                        <ul class="flex-container flex-row">
+                            <li class="flex-item"><a href="#">Asociación Bin</a></li>
+                        </ul>
+                        <ul class="right hide-on-med-and-down colorMenu">
+                            <li class="flex-item"><a href="/Controller/partePublica/home.php">Inicio</a></li>
+                            <li><a href="../../Controller/partePublica/actividades.php">Actividades</a></li>
+                            <li><a class="dropdown-button" href="#!" data-activates="submenuPrincipal">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                        </ul>
+                        {# Submenu principal #}
+                        <ul id="submenuPrincipal" class="dropdown-content">
+                            <li><a href="../../Controller/partePublica/miPerfil.php">Mi perfil</a></li>
+                            <li><a href="../../Controller/partePublica/misActividades.php">Mis actividades</a></li>
+                            <li><a href="../../Controller/partePublica/salirPerfil.php">Salir del perfil</a></li>
+                        </ul>
+                        {# Menu movil #}
+                        <ul class="side-nav" id="mobile-demo">
+                            <li><a href="/Controller/partePublica/home.php">Inicio</a></li>
+                            <li><a href="../../Controller/partePublica/actividades.php">Actividades</a></li>
+                            <li><a class="dropdown-button" href="#!" data-activates="submenuMovil">{{ email }} <i class="fa fa-arrow-down"></i></a></li>
+                        </ul>
+                        {# Submenu movil #}
+                        <ul id="submenuMovil" class="dropdown-content">
+                            <li><a href="../../Controller/partePublica/miPerfil.php">Mi perfil</a></li>
+                            <li><a href="../../Controller/partePublica/misActividades.php">Mis actividades</a></li>
+                            <li><a href="../../Controller/partePublica/salirPerfil.php">Salir del perfil</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            {% else %}
+                <nav>
+                    <div class="nav-wrapper colorMenu">
+                        <a href="#" data-activates="mobile-demo" class="button-collapse">
+                            <i class="material-icons">
+                                <i class="fa fa-bars iconoHamburguesa" aria-hidden="true"></i>      
+                            </i>
+                        </a>
+                        <ul class="flex-container flex-row">
+                            <li class="flex-item"><a href="#">Asociación Bin</a></li>
+                        </ul>
+                        <ul class="right hide-on-med-and-down colorMenu">
+                            <li><a href="../../Controller/partePublica/home.php">Inicio</a></li>
+                            <li><a href="../../Controller/partePublica/actividades.php">Actividades</a></li>
+                            <li><a href="../../Controller/partePublica/formulario_login.php">Iniciar Sesión</a></li>
+                        </ul>
+                        <ul class="side-nav" id="mobile-demo">
+                            <li><a href="../../Controller/partePublica/home.php">Inicio</a></li>
+                            <li><a href="../../Controller/partePublica/actividades.php">Actividades</a></li>
+                            <li><a href="../../Controller/partePublica/formulario_login.php">Iniciar Sesión</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            {% endif %}
+            <div id="contenedorPrincipal" class="container">
+            {% block contenido %}{% endblock %}
+        </div>
+
+        <footer class="page-footer colorPiePagina">
+            <div class="container">
+                <div class="row">
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Asociación Bin</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="/Controller/partePublica/home.php">Inicio</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/Controller/partePublica/actividades.php">Actividades</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/Controller/partePublica/formulario_login.php">Iniciar Sesion</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/Controller/partePublica/formulario_login.php">@Asocición BIN</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Siguenos</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/public/lib/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="/public/lib/timepicki/js/timepicki.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <form class="col s12" action="../../Controller/partePublica/login.php" method="post" id="formularioLogin">
+      <div class="row">
+        <div class="input-field col s7 m6 l3">
+            <input id="icon_prefix" type="email" class="validate" name="email" id="email_persona" required>
+          <label for="icon_prefix">Nombre del Usuario</label>
+        </div>
+        <div class="input-field col s7 m6 l3">
+            <input id="icon_telephone" type="password" class="validate" name="password" id="password_persona" required>
+          <label for="icon_telephone">Contraseña</label>
+        </div>
+      </div>
+            <input class="waves-effect waves-light btn" type="submit" value="Entrar" id="botonEntrar">
+    </form>
+  </div>
+    <script type="text/javascript" src="/public/asset/js/login.js"></script>
+{% endblock %}
