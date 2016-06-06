@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Descripción de Persona
+ * Descripción de Persona.
  *
- * @author Antonio Contreras Román
+ * @author Antonio Contreras Román.
  */
 class Persona {
 
-    // Atributos de la clase Persona
+    // Atributos de la clase Persona.
     private $codigo;
     private $DNI;
     private $nombre;
@@ -30,7 +30,7 @@ class Persona {
     private $perfil_usuario;
     private $observaciones;
 
-    // Contructor de la clase Persona
+    // Contructor de la clase Persona.
     function __construct($codigo, $DNI, $nombre, $apellido1, $apellido2, $perfil, $foto, $sexo, $fecha_nac, $direccion, $municipio, $provincia, $pais, $fecha_alta, $fecha_baja, $n_Seguridad_Social, $n_Cuenta_Bancaria, $email, $password, $perfil_usuario, $observaciones) {
         $this->codigo = $codigo;
         $this->DNI = $DNI;
@@ -56,7 +56,7 @@ class Persona {
         $this->observaciones = $observaciones;
     }
 
-    // Getters y Setters
+    // Getters y Setters.
     function getCodigo() {
         return $this->codigo;
     }
@@ -225,9 +225,10 @@ class Persona {
         $this->observaciones = $observaciones;
     }
 
-    // Métodos
+    // Métodos.
 
     /**
+     * 
      * Inserta una persona en la base de datos.
      * @param number $codigo código numérico que identifica a la persona.
      * @param string $DNI DNI de la persona.
@@ -270,8 +271,9 @@ class Persona {
     }
 
     /**
+     * 
      * Borra una persona de la base de datos.
-     * @param numbre $codigo pasamos el código de la persona.
+     * @param numbre $codigo_persona pasamos el código de la persona.
      */
     public static function delete($codigo_persona) {
         $conexion = BinDb::connectDB();
@@ -280,6 +282,7 @@ class Persona {
     }
 
     /**
+     * 
      * Modifica una persona de la base de datos.
      * @param number $codigo código numérico que identifica a la persona.
      * @param string $DNI DNI de la persona.
@@ -329,11 +332,9 @@ class Persona {
     }
 
     /**
-     * Selecciona el código de la actividad y devuelve FALSE si encuentra más 
-     * de un registro de esa persona y TRUE si no encuentra nada.
-     * este método se aplicará siempre que se quiera comprobar si existe un objeto 
-     * con ese código.
-     * @param number $codigo.
+     * 
+     * Comprueba si existe una persona pasando como parámetro el codigo.
+     * @param number $codigo código de la persona.
      * @return boolean.
      */
     public static function existeCodigo($codigo) {
@@ -350,7 +351,7 @@ class Persona {
     /**
      * 
      * Selecciona todas las personas.
-     * @return array de objeto con todas las personas.
+     * @return array de objeto de personas.
      */
     public function getPersonas() {
         $conexion = BinDb::connectDB();
@@ -372,8 +373,9 @@ class Persona {
 
     /**
      * 
-     * Selecciona todos los códigos de las personas.
-     * @return array de los objetos con el código.
+     * Comprueba si existe una persona pasándole como parámetro el codigo.
+     * @param $codigo_persona código de la persona. 
+     * @return boobleam.
      */
     public static function findCodigoPersona($codigo_persona) {
         $conexion = BinDb::connectDB($codigo_persona);
@@ -389,7 +391,7 @@ class Persona {
     /**
      * 
      * Selecciona todos los perfiles de usuarios de las personas.
-     * @return array con los perfiles de usuarios de persona.
+     * @return array con los perfiles de los usuarios de las personas.
      */
     public static function getPerfiles_usuariosPersona() {
         $conexion = BinDb::connectDB();
@@ -414,7 +416,7 @@ class Persona {
 
     /**
      * 
-     * Selecciona todos los perfiles de las personas.
+     * Selecciona los perfiles y las descripciones de las personas.
      * @return array con los perfiles.
      */
     public static function getPerfilesPersona() {
@@ -434,9 +436,9 @@ class Persona {
 
     /**
      * 
-     * Selecciona el código del perfil dado una descripción 
-     * @param type $descripcion descripción de la persona
-     * @return array con el código de la persona
+     * Selecciona el código del perfil pasando una descripción como parámetro.
+     * @param String $descripcion descripción de la persona.
+     * @return array.
      */
     public static function getCodigoPerfilbyDescripcion($descripcion) {
         $conexion = BinDb::connectDB();
@@ -479,9 +481,10 @@ class Persona {
 
     /**
      * 
-     * Selecciona los campos de la tabla según el codigo.
-     * @param string $codigo codigo correspondiente a la persona.
-     * @return array devuelve objetos de las personas
+     * Selecciona los codigos de las personas.
+     * @param string $codigo_persona codigo correspondiente a la persona.
+     * @param string $detallesPerfil detalle correspondiente a la persona.
+     * @return array del objeto de la persona.
      */
     public static function getPersonaByCodigo($codigo_persona, $detallesPerfil) {
 
@@ -514,9 +517,9 @@ class Persona {
 
     /**
      * 
-     * Devuelve el número total de páginas dado el limite 
-     * @param Integer $limite número de registros que queremos mostrar
-     * @returm numero de paginas
+     * Devuelve el número total de páginas dado el limite.
+     * @param Integer $limite número de registros que queremos mostrar.
+     * @returm numero de paginas.
      */
     public static function getNumeroPaginas($limite) {
         $conexion = BinDb::connectDB();
@@ -529,9 +532,9 @@ class Persona {
     /**
      * 
      * Devuelve un array con objetos de tipo persona.
-     * @param Integer $sesionPagina página en la que estamos que está almacenada como sesión
-     * @param Integer $limite limite que será la cantidad de registros que queremos mostrar
-     * @returm array de objetos de tipo persona
+     * @param Integer $sesionPagina página en la que estamos que está almacenada como sesión.
+     * @param Integer $limite limite que será la cantidad de registros que queremos mostrar.
+     * @returm array de objetos.
      */
     public static function getPersonasByLimit($sesionPagina, $limite) {
         $conexion = BinDb::connectDB();
@@ -560,8 +563,8 @@ class Persona {
 
     /**
      * 
-     * Selecciona los nombres de las personas. 
-     * @return array con los nombres de las personas
+     * Selecciona los códigos y los nombres de las personas. 
+     * @return array de las personas.
      */
     public static function getNombrePersona() {
         $conexion = BinDb::connectDB();
@@ -582,8 +585,8 @@ class Persona {
     /**
      * 
      * Selecciona los códigos de las personas. 
-     * @param String $nombre nombre de la persona
-     * @return array con el  nombre de la persona
+     * @param String $nombre nombre de la persona.
+     * @return array con el nombre de la persona.
      */
     public static function getCodigoPersonabyNombre($nombre) {
         $conexion = BinDb::connectDB();
@@ -600,9 +603,10 @@ class Persona {
 
     /**
      * 
-     * Selecciona la password de la persona.
-     * @param String $email email de la persona
-     * @return array con el email de la persona
+     * Selecciona el password de la persona.
+     * @param String $email email de la persona.
+     * @param Integer $codigo código de la persona.
+     * @return password de la persona.
      */
     public static function getPasswordByCodigo($codigo, $email) {
         $conexion = BinDb::connectDB();
@@ -623,9 +627,9 @@ class Persona {
 
     /**
      * 
-     * Selecciona la password de la persona.
-     * @param String $email email de la persona
-     * @return array con el email de la persona
+     * Selecciona el password de la persona pasándole el email como parámetro.
+     * @param String $email email de la persona.
+     * @return email de la persona.
      */
     public static function getEmailByEmail($email) {
         $conexion = BinDb::connectDB();
@@ -643,8 +647,8 @@ class Persona {
     /**
      * 
      * Selecciona el perfil de usuario de la persona.
-     * @param String $email email de la persona
-     * @return array con el perfil de uusario
+     * @param String $email email de la persona.
+     * @return array con el perfil de uusario.
      */
     public static function getPerfil_usuarioByEmail($email) {
         $conexion = BinDb::connectDB();
@@ -663,9 +667,9 @@ class Persona {
 
     /**
      * 
-     * Selecciona el código de la persona. 
-     * @param String $email email de la persona
-     * @return código de la personas dado el email
+     * Selecciona el código de la persona pasándole el email como parámetro. 
+     * @param String $email email de la persona.
+     * @return código de la persona.
      */
     public static function getCodigoByEmail($email) {
         $conexion = BinDb::connectDB();
@@ -682,9 +686,9 @@ class Persona {
 
     /**
      * 
-     * Selecciona el perfil de la persona.
-     * @param String $codigo email de la persona
-     * @return del perfil dado el código
+     * Selecciona el perfil de la persona pasando el código como parámetro.
+     * @param String $codigo del perfil de la persona.
+     * @return del perfil dado el código.
      */
     public static function getPerfilByCodigo($codigo) {
         $conexion = BinDb::connectDB();
@@ -699,6 +703,12 @@ class Persona {
         return $perfil;
     }
 
+    /**
+     * 
+     * Mira si existe el sexo pasado como parámetro.
+     * @param String $sexo de la persona.
+     * @return booleam.
+     */
     public static function findSexoPersona($sexo) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT sexo FROM persona WHERE sexo='$sexo'";
@@ -710,6 +720,12 @@ class Persona {
         return FALSE;
     }
 
+    /**
+     * 
+     * Mira si existe el perfil del usuario pasado como parámetro.
+     * @param String $perfil_usuario perfil de la persona.
+     * @return booleam.
+     */
     public static function findPerfil_usuario($perfil_usuario) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT perfil_usuario FROM persona WHERE perfil_usuario='$perfil_usuario'";

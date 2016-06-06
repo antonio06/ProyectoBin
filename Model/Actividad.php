@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Descripción de Actividad
+ * Descripción de Actividad.
  *
- * @author Antonio Contreras Román
+ * @author Antonio Contreras Román.
  */
 class Actividad {
 
-    // Atributos de la clase Actividad
+    // Atributos de la clase Actividad.
     private $codigo_actividad;
     private $titulo;
     private $estado;
@@ -24,7 +24,7 @@ class Actividad {
     private $descriptor;
     private $observaciones;
 
-    // Contructor de la clase Actividad
+    // Contructor de la clase Actividad.
     function __construct($codigo_actividad, $titulo, $estado, $coordinador, $ponente, $ubicacion, $fecha_inicio, $fecha_fin, $horario_inicio, $horario_fin, $n_Total_Horas, $precio, $IVA, $descriptor, $observaciones) {
         $this->codigo_actividad = $codigo_actividad;
         $this->titulo = $titulo;
@@ -43,7 +43,7 @@ class Actividad {
         $this->observaciones = $observaciones;
     }
 
-    // Getters y Setters
+    // Getters y Setters.
     function getCodigo_actividad() {
         return $this->codigo_actividad;
     }
@@ -164,16 +164,16 @@ class Actividad {
         $this->observaciones = $observaciones;
     }
 
-    // Métodos
+    // Métodos.
 
     /**
-     * Inserta una actividad en la base de datos.
      * 
+     * Inserta una actividad en la base de datos.
      * @param number $codigo Código numérico que identifica a la actividad.
      * @param string $titulo Titulo de la actividad.
      * @param estado $estado Estado en el que se encuentra la actividad.
      * @param string $coordinador Nombre del coordinador de la actividad.
-     * @param string $ponente Nombre del ponente de la actividad
+     * @param string $ponente Nombre del ponente de la actividad.
      * @param string $ubicacion Dirección donde se realizará la actividad.
      * @param date $fecha_inicio Fecha de inicio en la que se realizará la actividad.
      * @param date $fecha_fin Fecha de fin en la que termina la actividad.
@@ -200,8 +200,8 @@ class Actividad {
     }
 
     /**
-     * Borra una actividad de la base de datos.
      * 
+     * Borra una actividad de la base de datos.
      * @param numbre $codigo_actividad El código de la actividad.
      */
     public static function delete($codigo_actividad) {
@@ -211,8 +211,8 @@ class Actividad {
     }
 
     /**
-     * Modifica una actividad de la base de datos.
      * 
+     * Modifica una actividad de la base de datos.
      * @param number $codigo Código numérico que identifica a la actividad.
      * @param string $titulo titulo de la actividad.
      * @param string $estado estado en el que se encuentra la actividad.
@@ -226,8 +226,8 @@ class Actividad {
      * @param numbre $n_Total_Horas nº total de horas de la actividad.
      * @param numbre $precio precio de la actividad.
      * @param string $IVA indica si la actividad tiene IVA o no.
-     * @param string $descriptor personas a la que va dirigida la actividad
-     * @param string $observaciones observaciones que puede tener una actividad
+     * @param string $descriptor personas a la que va dirigida la actividad.
+     * @param string $observaciones observaciones que puede tener una actividad.
      */
     public function update() {
         $conexion = BinDb::connectDB();
@@ -268,8 +268,8 @@ class Actividad {
 
     /**
      * 
-     * Selecciona todos los datos de las actividades 
-     * @return array de con las actividades
+     * Selecciona todos los datos de las actividades.
+     * @return array de actividades.
      */
     public function getActividades() {
         $conexion = BinDb::connectDB();
@@ -291,7 +291,7 @@ class Actividad {
      * 
      * Selecciona los campos de la tabla según el codigo.
      * @param string $codigo codigo correspondiente a la actividad.
-     * @return array de la actividad
+     * @return objeto de la actividad
      */
     public static function getActividadByCodigo($codigo_actividad) {
         $conexion = BinDb::connectDB();
@@ -386,6 +386,7 @@ class Actividad {
     }
 
     /**
+     * 
      * Devuelve el número total de páginas.
      * @param number $limite Cantidad de registros que queremos mostrar.
      * @returm number El número de páginas totales.
@@ -399,12 +400,13 @@ class Actividad {
         return ceil($totalRegistros / $limite);
     }
 
-    /* Devuelve las actividades filtradas con el limit de mysql
+    /**
+     * 
+     *  Devuelve las actividades filtradas con el limit de mysql.
      * @param number $sesionPagina sesión de la página en la que nos encontramos ahora.
      *  @param number $limite cantidad de filas que queremos mostrar.
-     * @returm array de los objetos actividades.
+     * @returm array con actividades.
      */
-
     public static function getActividadesByLimit($sesionPagina, $limite) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT codigo_actividad, titulo, estado, coordinador, ponente,"
@@ -424,8 +426,9 @@ class Actividad {
     }
 
     /**
-     * Selecciona el título de la actividad
-     * @return array con los titulos  de las actividades
+     * 
+     * Selecciona el título de la actividad.
+     * @return array con los titulos  de las actividades.
      */
     public static function getTituloActividad() {
         $conexion = BinDb::connectDB();
@@ -444,9 +447,9 @@ class Actividad {
 
     /**
      *
-     * Selecciona el código pasándole como parámetro el titulo de la actividad
-     * @param String $titulo titulo de la actividad
-     * @return array con el codigo de la actividad
+     * Selecciona el código pasándole como parámetro el titulo de la actividad.
+     * @param String $titulo titulo de la actividad.
+     * @return array con el codigo de la actividad.
      */
     public static function getCodigoActividadByTitulo($titulo) {
         $conexion = BinDb::connectDB();
@@ -462,11 +465,12 @@ class Actividad {
     }
 
     /**
-     * Inserta dentro de participa los datos enviados como parámetros
-     * @param Integer $perfil con el codigo de la persona 
-     * @param Integer $nombre con el codigo de la actividad 
-     * @param Integer $codigo con el codigo del perfil con el que ingresa en la actividad
-     * @return objeto de la actividad
+     * 
+     * Inserta dentro de participa los datos enviados como parámetros.
+     * @param Integer $perfil con el codigo de la persona.
+     * @param Integer $nombre con el codigo de la actividad.
+     * @param Integer $codigo con el codigo del perfil con el que ingresa en la actividad.
+     * @return objeto de la actividad.
      */
     public function insertParticipante($perfil, $nombre, $codigo) {
         $conexion = BinDb::connectDB();
@@ -476,8 +480,9 @@ class Actividad {
     }
 
     /**
-     * Selecciona todos los participantes no acepta parámetros
-     * @return array con todos los objetos de participa
+     * 
+     * Selecciona todos los participantes no acepta parámetros.
+     * @return array de objetos de participa.
      */
     public static function getParticipantes() {
         $conexion = BinDb::connectDB();
@@ -492,11 +497,13 @@ class Actividad {
     }
 
     /**
-     * Modifica un objeto participa con los datos que se envian como parámetros
+     * 
+     * Modifica un objeto participa con los datos que se envian como parámetros.
+     * @param Integer $id id del participante.
      * @param Integer $codigo_persona codigo de la persona.
      * @param Integer $codigo_actividad codigo de la actividad.
-     * @param Integer $codigo_perfil codigo del perfil de la persona
-     * @return devuelve un objeto participa
+     * @param Integer $codigo_perfil codigo del perfil de la persona.
+     * @return devuelve un objeto participa.
      */
     public static function updateParticipa($id, $codigo_persona, $codigo_actividad, $codigo_perfil) {
         $conexion = BinDb::connectDB();
@@ -507,10 +514,11 @@ class Actividad {
     }
 
     /**
+     * 
      * Borra un objeto participa pasándole como parámetro el codigo de participa que está 
-     * almacenado como una sesión
-     * @param Integer $sesionCodigo codigo de la persona
-     * @return Objeto participa
+     * almacenado como una sesión.
+     * @param Integer $sesionCodigo codigo de la persona.
+     * @return Objeto participa.
      */
     public static function deleteParticipa($id) {
         $conexion = BinDb::connectDB();
@@ -520,10 +528,11 @@ class Actividad {
     }
 
     /**
-     *  Devuelve el numero de páginas que hay en la tabla de participa
+     * 
+     * Devuelve el numero de páginas que hay en la tabla de participa.
      * @param Integer $limite Cantidad de registros que queremos mostrar.
      * @param Integer $codigo_persona codigo de la persona.
-     * @returm numeroPaginas 
+     * @returm Número total de páginas.
      */
     public static function getNumeroPaginasParticipa($limite, $codigo_persona) {
         $conexion = BinDb::connectDB();
@@ -540,11 +549,11 @@ class Actividad {
 
     /**
      * 
-     * Devuelve los participantes filtrados con el limit de mysql 
-     * @param  type Integer $sesionPagina página que está almacenada como sesión
-     * @param  type Integer $limite cantidad de registros que queremos mostrar
-     * @param  type Integer $codigo_persona codigo de la persona si su valor es null mostrará todos los 
-     * registros  de la tabla si no mostrará los registros pertenecientes a dicho código 
+     * Devuelve los participantes filtrados con el limit de mysql.
+     * @param  type Integer $sesionPagina página que está almacenada como sesión.
+     * @param  type Integer $limite cantidad de registros que queremos mostrar.
+     * @param  type Integer $codigo_persona codigo de la persona si su valor es null mostrará todos los
+     * registros  de la tabla si no mostrará los registros pertenecientes a dicho código.
      * @returm array de objetos 
      */
     public static function getParticipantesByLimit($sesionPagina, $limite, $codigo_persona) {
@@ -577,11 +586,6 @@ class Actividad {
                             INNER JOIN actividad ON actividad.codigo_actividad = participa.codigo_actividad 
                             INNER JOIN perfil ON participa.codigo_perfil = perfil.codigo 
                           ORDER BY nombre LIMIT $sesionPagina , $limite";
-//            $seleccion = "SELECT persona.nombre, actividad.titulo, "
-//                    . "persona.perfil_usuario FROM persona INNER JOIN participa "
-//                    . "ON persona.codigo = participa.codigo_persona INNER JOIN "
-//                    . "actividad ON actividad.codigo_actividad = participa.codigo_actividad "
-//                    . "ORDER BY codigo_persona LIMIT $sesionPagina , $limite";
         }
         $consulta = $conexion->query($seleccion);
         $participantes = [];
@@ -597,8 +601,8 @@ class Actividad {
      * Selecciona el código del perfil perteneciente a la descripción que se pase 
      * como parámetro.
      * @param String $descripcion descripción del perfil (los valores que pueden ser son
-     * socio, ponente, monitor, participante, colaborador) 
-     * @return type Integer codigo del perfil  
+     * socio, ponente, monitor, participante, colaborador).
+     * @return type Integer codigo del perfil.
      */
     public static function getCodigoPerfil($descripcion) {
         $conexion = BinDb::connectDB();
@@ -611,6 +615,12 @@ class Actividad {
         return $codigo_perfil;
     }
 
+    /** 
+     * 
+     * Busca si existe una actividad con el código pasado como parámetro.
+     * @param Integer $codigo_actividad código de la actividad.
+     * @return Boobleam.
+     */
     public static function findCodigoActividad($codigo_actividad) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT codigo_actividad FROM actividad WHERE codigo_actividad=$codigo_actividad";
@@ -621,7 +631,13 @@ class Actividad {
         }
         return FALSE;
     }
-
+    
+    /** 
+     * 
+     * Busca si existe un perfil con el código pasado como parámetro.
+     * @param Integer $codigo_perfil código del perfil.
+     * @return Boobleam.
+     */
     public static function findCodigoPerfil($codigo_perfil) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT codigo FROM perfil WHERE codigo=$codigo_perfil";
@@ -633,6 +649,14 @@ class Actividad {
         return FALSE;
     }
 
+    /** 
+     * 
+     * Busca si existe un participante con  los códigos pasado como parámetro.
+     * @param Integer $codigo_persona código de la persona.
+     * @param Integer $codigo_actividad código de la actividad.
+     * @param Integer $codigo_perfil código del perfil.
+     * @return Boobleam.
+     */
     public static function comprobarPerfilActividad($codigo_persona, $codigo_actividad, $codigo_perfil) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT * FROM participa WHERE codigo_persona=$codigo_persona " .
@@ -646,6 +670,7 @@ class Actividad {
     }
 
     /**
+     * 
      * Devuelve una representación del objeto en formato JSON.
      * @return type String El objeto en formato JSON. 
      */
@@ -670,6 +695,12 @@ class Actividad {
         return json_encode($actividad);
     }
 
+    /** 
+     * 
+     * Selecciona los datos de participante.
+     * @param Integer $id código de la persona.
+     * @return objeto participante.
+     */
     public static function getParticipanteById($id) {
         $conexion = BinDb::connectDB();
         $seleccion = "SELECT * FROM participa WHERE id=$id";
