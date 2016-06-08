@@ -472,7 +472,7 @@ class Actividad {
      * @param Integer $codigo con el codigo del perfil con el que ingresa en la actividad.
      * @return objeto de la actividad.
      */
-    public function insertParticipante($perfil, $nombre, $codigo) {
+    public static function insertParticipante($perfil, $nombre, $codigo) {
         $conexion = BinDb::connectDB();
         $inserta = "INSERT INTO participa (codigo_persona, codigo_actividad, codigo_perfil) " .
                 "VALUES (\"" . $perfil . "\", \"" . $nombre . "\", \"" . $codigo . "\")";
