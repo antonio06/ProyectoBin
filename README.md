@@ -1,8 +1,8 @@
 Enlace a la web del proyecto: http://actividadesbin.esy.es/Controller/partePublica/home.php
 
-Tanto la documentación, capturas de pantalla y pequeña presentación del proyecto se encuentran integramente en la carpeta Documentation.
+Tanto la documentación, capturas de pantalla y pequeña presentación del proyecto se encuentran íntegramente en la carpeta Documentation, además de aportarse integramente la BBDD de todo el proyecto.
 
-Este proyecto ha sido realizado en las tecnologias PHP, Javascript (jquery/ajax) html5 y CSS3(con ayuda del framework materialize). 
+Este proyecto ha sido realizado en las tecnologias PHP, Javascript (jquery/ajax) html5 y CSS3(con ayuda del framework materialize) además del gestor de base de datos de phpmyadmin. 
 
 También me he ayudado del motor de plantillas twig para la realización de las vistas.
 
